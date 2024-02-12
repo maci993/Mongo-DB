@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const bookSchema = mongoose.Schema({
+const librarySchema = mongoose.Schema({
   book: String,
   author: String,
   year: String,
@@ -11,35 +11,35 @@ const bookSchema = mongoose.Schema({
   recomedation: String,
 });
 
-const Book = mongoose.model("Book", bookSchema, "books");
+const Library = mongoose.model("Library", librarySchema, "libraries");
 
 const create = async (data) => {
-  const book = new Book(data);
+  const book = new Library(data);
   return await book.save();
 };
 
 const getById = async (id) => {
-  return await Book.findOne({ _id: id });
+  return await Library.findOne({ _id: id });
 };
 
 const getByAuthor = async (author) => {
-  return await Book.findOne({ author: author });
+  return await Library.findOne({ author: author });
 };
 
 const getAllSortedByName = async () => {
-  return await Book.find({}).sort({ book: 1 });
+  return await Library.find({}).sort({ book: 1 });
 };
 
 const getAll = async () => {
-  return await Book.find({});
+  return await Library.find({});
 };
 
 const update = async (id, data) => {
-  return await Book.updateOne({ _id: id }, data);
+  return await Library.updateOne({ _id: id }, data);
 };
 
 const remove = async (id) => {
-  return await Book.deleteOne({ _id: id });
+  return await Library.deleteOne({ _id: id });
 };
 
 module.exports = {
