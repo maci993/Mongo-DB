@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.get("/books", getAllBooks);
 app.get("/books/:id", getOneBook);
-app.get("/books/sorted", getSortedByName);
+app.get("/book/sorted", getSortedByName);
 app.get("/book/:author", getBookByAuthor);
 app.post("/books", createBook);
 app.put("/books/:id", updateBook);
